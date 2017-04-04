@@ -6,6 +6,11 @@ var express = require('express');
 var stripe = require('stripe')('sk_test_5zjs1Gtx1gnaV7CqqhwHCOnV');
 var router      = express.Router();
 
+router.get('/', function(req, res, next) {
+  res.send('respond with a resource');
+});
+
+
 function createCharge(charge, productId) {
 
     return new Promise((resolve, reject) => {
@@ -94,4 +99,6 @@ router.post('/customer/default_source', (req, res) => {
         }
     })
 });
+
+module.exports = router;
 
